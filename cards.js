@@ -1,6 +1,7 @@
 
 var createButton = document.getElementById("create");
 var userInput = document.getElementById("userText");
+var cardToDOM = document.getElementById("newCardsHere");
 
 
 //***************************************************
@@ -15,10 +16,18 @@ function createCard (clickEvent) {
 
 	var validInput;
 	validInput = validateInput();
-	// create new card
-	// write the card to the DOM
+
+	if (validInput) {
+		writeCardToDOM();
+	}
+	
 }
 
+
+//***************************************************
+// function validates that user entered text 
+// in <textarea> box
+//***************************************************
 function validateInput () {
 
 	if (userInput.value !== "") {
@@ -27,6 +36,22 @@ function validateInput () {
 		alert("You must enter something here for a card to be created.")
 		return false; 
 	}
+}
+
+
+//***************************************************
+// function writes the New Card to the DOM
+// (i.e., creates a New Card)
+//***************************************************
+function writeCardToDOM () {
+
+	var domTempString; 
+
+	domTempString = "<section id='newCard'><p id='domText'>";
+	domTempString += "<strong>New Card!</strong>"
+	domTempString += userInput.value + "</p></section>";
+	cardToDOM.innerHTML = domTempString;
+
 }
 
 

@@ -1,3 +1,4 @@
+
 body {
 	background-color: honeydew;
 	font-family: 'Muli', sans-serif;
@@ -7,6 +8,10 @@ h1 {
 	text-align: center;
 }
 
+
+/******************************************/
+/* styling for user input screen
+/******************************************/
 #definedArea {
 	background-color: #FAF9E1;
 	max-width: 50%;
@@ -27,6 +32,36 @@ label {
 	font-weight: 900;
 }
 
+
+/******************************************/
+/* styling for new cards written dynamically to DOM
+/******************************************/
+#newCardsHere {
+	display: flex;
+    flex-flow: row wrap;
+}
+
+#newCard {
+	background-color: #f0f0ff;
+    width: 30%;
+    border: 3px solid green;
+	border-radius: 8px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+#domText {
+	margin: 20px 20px;
+}
+
+#newCard {
+	max-width: ;
+}
+
+
+/******************************************/
+/* styling for <Create> button
+/******************************************/
 #create {
   background: #68b371;
   background-image: -webkit-linear-gradient(top, #68b371, #2980b9);
