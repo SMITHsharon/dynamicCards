@@ -50,6 +50,10 @@ label {
     margin-left: 10px;
 }
 
+#newCardHeader {
+	text-align: center;
+}
+
 #domText {
 	margin: 20px 20px;
 }

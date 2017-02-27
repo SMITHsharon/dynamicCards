@@ -2,7 +2,7 @@
 var createButton = document.getElementById("create");
 var userInput = document.getElementById("userText");
 var cardToDOM = document.getElementById("newCardsHere");
-
+var cardArray = [];
 
 //***************************************************
 // When user enters text into <textarea> box 
@@ -18,6 +18,7 @@ function createCard (clickEvent) {
 	validInput = validateInput();
 
 	if (validInput) {
+		addCardToCardArray();
 		writeCardToDOM();
 	}
 	
@@ -40,20 +41,43 @@ function validateInput () {
 
 
 //***************************************************
+// function creates a New Card by adding 
+// user-generated card text to cardArray
+//***************************************************
+function addCardToCardArray () {
+console.log("trying to add card to cardArray");
+console.log("userInput.value :: ", userInput.value);
+
+	cardArray.push(userInput.value);
+	console.log("cardArray :: ", cardArray);
+	console.log("cardArray[0] :: ", cardArray[0]);
+}
+
+//***************************************************
 // function writes the New Card to the DOM
-// (i.e., creates a New Card)
 //***************************************************
 function writeCardToDOM () {
 
 	var domTempString; 
 
 	domTempString = "<section id='newCard'><p id='domText'>";
-	domTempString += "<strong>New Card!</strong>"
-	domTempString += userInput.value + "</p></section>";
+	domTempString += "<h3 id='newCardHeader'>New Card!</h3>"
+	domTempString += "<p id='domText'>" + userInput.value + "</p></section>";
 	cardToDOM.innerHTML = domTempString;
-
 }
 
+// FROM SEARCH ...
+// function addElement () { 
+  // create a new div element 
+  // and give it some content 
+  // var newDiv = document.createElement("div"); 
+  // var newContent = document.createTextNode("Hi there and greetings!"); 
+  // newDiv.appendChild(newContent); //add the text node to the newly created div. 
+
+  // add the newly created element and its content into the DOM 
+//   var currentDiv = document.getElementById("div1"); 
+//   document.body.insertBefore(newDiv, currentDiv); 
+// }
 
 
 //***************************************************
