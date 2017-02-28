@@ -65,7 +65,8 @@ function writeCardsToDOM (thisCard) {
 
 	domTempString = "<section id='newCard'><p id='domText'>";
 	domTempString += "<h3 id='newCardHeader'>New Card!</h3>"
-	domTempString += "<p id='domText'>" + thisCard + "</p></section>";
+	domTempString += "<p id='domText'>" + thisCard + "</p>";
+	domTempString += "<div id='buttonDiv'><button type='submit' id='delete' value='Delete'>Delete</button></div></section>";
 
 	return domTempString;
 }

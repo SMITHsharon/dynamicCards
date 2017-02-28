@@ -64,7 +64,7 @@ label {
 
 
 /******************************************/
-/* styling for <Create> button
+/* styling for <Create>  and <Delete> buttons
 /******************************************/
 #create {
   background: #68b371;
@@ -84,7 +84,7 @@ label {
   text-decoration: none;
 }
 
-#create:hover {
+#create:hover{
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
@@ -93,3 +93,34 @@ label {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
+
+#delete {
+  background: #68b371;
+  background-image: -webkit-linear-gradient(top, #68b371, #2980b9);
+  background-image: -moz-linear-gradient(top, #68b371, #2980b9);
+  background-image: -ms-linear-gradient(top, #68b371, #2980b9);
+  background-image: -o-linear-gradient(top, #68b371, #2980b9);
+  background-image: linear-gradient(to bottom, #68b371, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  max-width: 100px;
+  margin: 5% 35%;
+  border-radius: 28px;
+  color: honeydew;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#delete:hover{
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+
+
+
+
