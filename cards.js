@@ -7,6 +7,7 @@ var cardArray = [];
 //***************************************************
 // When user enters text into <textarea> box 
 // clicks <Create>, function creates a new card
+// (pushes new Card to cardArray)
 // and writes the cardHTML to the DOM
 //
 // Displays <alert> to user if clicks <Create> button
@@ -14,14 +15,24 @@ var cardArray = [];
 //***************************************************
 function createCard (clickEvent) {
 
+	var domCards = "";
+
 	var validInput;
 	validInput = validateInput();
 
 	if (validInput) {
-		addCardToCardArray();
-		writeCardToDOM();
+
+		cardArray.push(userInput.value);
+
+		for (var i=0; i<cardArray.length; i++) {
+			domCards += writeCardsToDOM(cardArray[i]);
+		}
+
+		cardToDOM.innerHTML = domCards;
 	}
 	
+	userInput.value = "";
+	userInput.placeholder = "Text In Here...";
 }
 
 
@@ -41,43 +52,19 @@ function validateInput () {
 
 
 //***************************************************
-// function creates a New Card by adding 
-// user-generated card text to cardArray
-//***************************************************
-function addCardToCardArray () {
-console.log("trying to add card to cardArray");
-console.log("userInput.value :: ", userInput.value);
-
-	cardArray.push(userInput.value);
-	console.log("cardArray :: ", cardArray);
-	console.log("cardArray[0] :: ", cardArray[0]);
-}
-
-//***************************************************
 // function writes the New Card to the DOM
 //***************************************************
-function writeCardToDOM () {
+function writeCardsToDOM (thisCard) {
 
 	var domTempString; 
 
 	domTempString = "<section id='newCard'><p id='domText'>";
 	domTempString += "<h3 id='newCardHeader'>New Card!</h3>"
-	domTempString += "<p id='domText'>" + userInput.value + "</p></section>";
-	cardToDOM.innerHTML = domTempString;
+	domTempString += "<p id='domText'>" + thisCard + "</p></section>";
+
+	return domTempString;
 }
 
-// FROM SEARCH ...
-// function addElement () { 
-  // create a new div element 
-  // and give it some content 
-  // var newDiv = document.createElement("div"); 
-  // var newContent = document.createTextNode("Hi there and greetings!"); 
-  // newDiv.appendChild(newContent); //add the text node to the newly created div. 
-
-  // add the newly created element and its content into the DOM 
-//   var currentDiv = document.getElementById("div1"); 
-//   document.body.insertBefore(newDiv, currentDiv); 
-// }
 
 
 //***************************************************
