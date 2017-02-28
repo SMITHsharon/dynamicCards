@@ -1,7 +1,7 @@
 
 var createButton = document.getElementById("create");
 var userInput = document.getElementById("userText");
-var cardToDOM = document.getElementById("newCardsHere");
+var cardsToDOM = document.getElementById("newCardsHere");
 var cardArray = [];
 
 //***************************************************
@@ -24,11 +24,14 @@ function createCard (clickEvent) {
 
 		cardArray.push(userInput.value);
 
+		// iterate through cardArray to write 
+		// the HTML DOM string for each Card
 		for (var i=0; i<cardArray.length; i++) {
 			domCards += writeCardsToDOM(cardArray[i]);
 		}
 
-		cardToDOM.innerHTML = domCards;
+		// write all the Cards to the DOM
+		cardsToDOM.innerHTML = domCards;
 	}
 	
 	userInput.value = "";
@@ -52,7 +55,9 @@ function validateInput () {
 
 
 //***************************************************
-// function writes the New Card to the DOM
+// function writes the New Card to a string
+// RETURNS the string, to be written with all cards
+// in one statement to the DOM
 //***************************************************
 function writeCardsToDOM (thisCard) {
 
