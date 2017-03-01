@@ -94,7 +94,7 @@ label {
   text-decoration: none;
 }
 
-#delete {
+.delButtons {
   background: #68b371;
   background-image: -webkit-linear-gradient(top, #68b371, #2980b9);
   background-image: -moz-linear-gradient(top, #68b371, #2980b9);
@@ -112,7 +112,7 @@ label {
   text-decoration: none;
 }
 
-#delete:hover{
+.delButtons:hover{
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
   background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
