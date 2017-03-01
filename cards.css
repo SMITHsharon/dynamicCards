@@ -41,7 +41,7 @@ label {
     flex-flow: row wrap;
 }
 
-#newCard {
+.newCard {
 	background-color: #f0f0ff;
     width: 30%;
     border: 3px solid green;
@@ -50,15 +50,15 @@ label {
     margin-left: 10px;
 }
 
-#newCardHeader {
+.newCardHeader {
 	text-align: center;
 }
 
-#domText {
+.domText {
 	margin: 20px 20px;
 }
 
-#newCard {
+.newCard {
 	max-width: ;
 }
 
@@ -82,6 +82,16 @@ label {
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
+}
+
+#create:active {
+  outline: none;
+  border: none;
+}
+
+#create:focus {
+  outline: none;
+  border: none;
 }
 
 #create:hover{

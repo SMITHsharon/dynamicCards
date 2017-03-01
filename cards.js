@@ -46,7 +46,6 @@ function createCard (clickEvent) {
 // loop through CardsToDOM ...
 // cardsToDOM.childNodes[i]
 			deleteButton = document.getElementById(deleteButtonID);
-			deleteButton.addEventListener("click", deleteCard);
 		}
 	}
 	
@@ -80,10 +79,10 @@ function writeCardsToDOM (thisCard, index, deleteButtonID) {
 	var domTempString; 
 console.log("deleteButtonID :: ", deleteButtonID);
 
-	domTempString = "<section id='newCard'><p id='domText'>";
-	domTempString += "<h3 id='newCardHeader'>Lorem Card: " + index + "</h3>"
-	domTempString += "<p id='domText'>" + thisCard + "</p>";
-	domTempString += "<div id='buttonDiv'><button type='submit' id='" + deleteButtonID;
+	domTempString = "<section class='newCard'><p class='domText'>";
+	domTempString += "<h3 class='newCardHeader'>Lorem Card: " + index + "</h3>"
+	domTempString += "<p class='domText'>" + thisCard + "</p>";
+	domTempString += "<div class='buttonDiv'><button type='submit' id='" + deleteButtonID;
 	domTempString += "' class='delButtons' value='Delete'>Delete</button></div></section>";
 
 console.log("DOM Temp String :: ", domTempString);
@@ -100,15 +99,20 @@ console.log("DOM Temp String :: ", domTempString);
 // and rewrites the cardHTML to the DOM
 
 //***************************************************
-function deleteCard (clickEvent) {
+// function deleteCard (clickEvent) {
+function deleteCard (cardArrayIndex) {
 console.log("in deleteCard");
-console.log("document.getElementById('id')");
-	// var domCards = "";
+console.log("cardArrayIndex :: ", cardArrayIndex);
+console.log("cardsToDOM.childNodes[0] :: ", cardsToDOM.childNodes[cardArrayIndex]);
 
-	// var validInput;
-	// validInput = validateInput();
-
-	// if (validInput) {
+	// var newArray = cardArray.splice(cardArrayIndex, 1);
+	console.log("cardArray :: ", cardArray);
+	cardArray.splice(cardArrayIndex, 1);
+	// var newArray = cardArray.shift(); // if Index===0
+	// cardArray.shift(); // if Index===0
+	console.log("cardArray :: ", cardArray);
+	// console.log("newArray :: ", newArray);
+	return cardArray;
 
 	// 	cardArray.push(userInput.value);
 
@@ -127,13 +131,37 @@ console.log("document.getElementById('id')");
 }
 
 
+function locateForDelete (e) {
+// console.log("e :: ", e);
+// console.log("e.target :: ", e.target);
+// console.log ("e.target.id :: ", e.target.id);
+// console.log("e.target.class :: ", e.target.class);
+	if (e.target.className === "delButtons") {
+		// delete this card
+		var cardIndex = getIndex(e.target.id);
+		
+		
+		deleteCard(cardIndex);
+		console.log("cardArray, after deleted card :: ", cardArray);
+	}
+}
+
+function getIndex (cardID) { // <Delete> button IDs are unique to cards, i.e., "delete1" ; [arrayIndex+1]
+// console.log("in getIndex / cardID parameter :: ", cardID);
+	var tempStr = cardID.substr(6);
+// console.log("tempStr for index : ", tempStr);
+	tempStr = parseInt(tempStr, 10);
+// console.log("convert string card index to integer / cardIndex :: ", tempStr);
+	return tempStr-1; // cardIndex in CardArray
+}
+
 
 //***************************************************
 // EVENT HANDLERs for <Create> button
 //***************************************************
 createButton.addEventListener("click", createCard);
 
-
+cardsToDOM.addEventListener("click", locateForDelete);
 
 
 
