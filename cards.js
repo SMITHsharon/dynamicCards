@@ -1,24 +1,24 @@
 
 var createButton = document.getElementById("create");
-// var deleteButton = document.getElementById("delete");
 
 var userInput = document.getElementById("userText");
 var cardsToDOM = document.getElementById("newCardsHere");
 var cardArray = [];
 
+
+
+//***************************************************
+// CREATE CARD
 //***************************************************
 // When user enters text into <textarea> box 
 // clicks <Create>, function creates a new card
-// (pushes new Card to cardArray)
-// and writes the cardHTML to the DOM
+// (pushes <userInput> text string for new Card to cardArray)
+// then writes the cardHTML to the DOM
 //
 // Displays <alert> to user if clicks <Create> button
 // without entering any text
 //***************************************************
 function createCard (clickEvent) {
-
-	var domCards = "";
-	var deleteButtonID = "delete"; // +index
 
 	var validInput;
 	validInput = validateInput();
@@ -27,26 +27,7 @@ function createCard (clickEvent) {
 
 		cardArray.push(userInput.value);
 
-		// iterate through cardArray to write 
-		// the HTML DOM string for each Card
-		for (var i=0; i<cardArray.length; i++) {
-
-			deleteButtonID = "delete" + (i+1);
-			domCards += writeCardsToDOM(cardArray[i], i+1, deleteButtonID);
-		}
-
-		// write all the Cards to the DOM
-		cardsToDOM.innerHTML = domCards;
-
-		//***************************************************
-		// add an EVENT HANDLER for each separate card's <Delete> button
-		//***************************************************
-		var deleteButton = document.getElementById(deleteButtonID);
-		for (var i=0; i<cardArray.length; i++) {
-// loop through CardsToDOM ...
-// cardsToDOM.childNodes[i]
-			deleteButton = document.getElementById(deleteButtonID);
-		}
+		writeAllToDOM();
 	}
 	
 	userInput.value = "";
@@ -61,7 +42,7 @@ function createCard (clickEvent) {
 function validateInput () {
 
 	if (userInput.value !== "") {
-		return true; // user entered text into text area
+		return true; 
 	} else {
 		alert("You must enter something here for a card to be created.")
 		return false; 
@@ -70,14 +51,13 @@ function validateInput () {
 
 
 //***************************************************
-// function writes the New Card to a string
+// function writes one New Card to a string
 // RETURNS the string, to be written with all cards
 // in one statement to the DOM
 //***************************************************
 function writeCardsToDOM (thisCard, index, deleteButtonID) {
 
 	var domTempString; 
-console.log("deleteButtonID :: ", deleteButtonID);
 
 	domTempString = "<section class='newCard'><p class='domText'>";
 	domTempString += "<h3 class='newCardHeader'>Lorem Card: " + index + "</h3>"
@@ -85,83 +65,71 @@ console.log("deleteButtonID :: ", deleteButtonID);
 	domTempString += "<div class='buttonDiv'><button type='submit' id='" + deleteButtonID;
 	domTempString += "' class='delButtons' value='Delete'>Delete</button></div></section>";
 
-console.log("DOM Temp String :: ", domTempString);
 	return domTempString;
 }
 
 
+function writeAllToDOM () {
 
-//***************************************************
-// When user clicks <Delete> on one of the 
-// dynamically created cards, function 
-// removes that Card from the DOM
-// (removes that Card from cardArray)
-// and rewrites the cardHTML to the DOM
-
-//***************************************************
-// function deleteCard (clickEvent) {
-function deleteCard (cardArrayIndex) {
-console.log("in deleteCard");
-console.log("cardArrayIndex :: ", cardArrayIndex);
-console.log("cardsToDOM.childNodes[0] :: ", cardsToDOM.childNodes[cardArrayIndex]);
-
-	// var newArray = cardArray.splice(cardArrayIndex, 1);
-	console.log("cardArray :: ", cardArray);
-	cardArray.splice(cardArrayIndex, 1);
-	// var newArray = cardArray.shift(); // if Index===0
-	// cardArray.shift(); // if Index===0
-	console.log("cardArray :: ", cardArray);
-	// console.log("newArray :: ", newArray);
-	return cardArray;
-
-	// 	cardArray.push(userInput.value);
+	var domCards = "";
+	var deleteButtonID = "delete"; // +index
 
 		// iterate through cardArray to write 
 		// the HTML DOM string for each Card
-	// 	for (var i=0; i<cardArray.length; i++) {
-	// 		domCards += writeCardsToDOM(cardArray[i], i+1);
-	// 	}
+		for (var i=0; i<cardArray.length; i++) {
 
-	// 	// write all the Cards to the DOM
-	// 	cardsToDOM.innerHTML = domCards;
-	// }
-	
-	// userInput.value = "";
-	// userInput.placeholder = "Text In Here...";
+			// generate a unique ID for the separate <Delete> buttons
+			// to be generated for each Card
+			deleteButtonID = "delete" + (i+1);
+			domCards += writeCardsToDOM(cardArray[i], i+1, deleteButtonID);
+		}
+
+		// write all the Cards to the DOM
+		cardsToDOM.innerHTML = domCards;
 }
 
 
-function locateForDelete (e) {
-// console.log("e :: ", e);
-// console.log("e.target :: ", e.target);
-// console.log ("e.target.id :: ", e.target.id);
-// console.log("e.target.class :: ", e.target.class);
+
+//***************************************************
+// DELETE CARD
+//***************************************************
+// function determines which Card in the cardArray to be deleted
+// and removes (splices) that card from the array
+// then rewrites cardArray to the DOM
+//***************************************************
+function deleteCard (e) {
+
 	if (e.target.className === "delButtons") {
-		// delete this card
+
 		var cardIndex = getIndex(e.target.id);
 		
-		
-		deleteCard(cardIndex);
-		console.log("cardArray, after deleted card :: ", cardArray);
+		cardArray.splice(cardIndex, 1);
+
+		writeAllToDOM();
 	}
 }
 
-function getIndex (cardID) { // <Delete> button IDs are unique to cards, i.e., "delete1" ; [arrayIndex+1]
-// console.log("in getIndex / cardID parameter :: ", cardID);
+
+//***************************************************
+// <Delete> button IDs are unique to cards, i.e., "delete1" ; [arrayIndex+1]
+// function parses the idString for the <Delete> button
+// of the selected Card to grab the Card's ID#
+//***************************************************
+function getIndex (cardID) { 
+
 	var tempStr = cardID.substr(6);
-// console.log("tempStr for index : ", tempStr);
 	tempStr = parseInt(tempStr, 10);
-// console.log("convert string card index to integer / cardIndex :: ", tempStr);
 	return tempStr-1; // cardIndex in CardArray
 }
 
 
+
 //***************************************************
-// EVENT HANDLERs for <Create> button
+// EVENT HANDLERs for <Create> and <Delete> buttons
 //***************************************************
 createButton.addEventListener("click", createCard);
 
-cardsToDOM.addEventListener("click", locateForDelete);
+cardsToDOM.addEventListener("click", deleteCard);
 
 
 
