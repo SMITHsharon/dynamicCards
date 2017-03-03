@@ -1,0 +1,113 @@
+
+body {
+	background-color: honeydew;
+	font-family: 'Muli', sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+
+/***************************************************/
+/* styling for user input screen
+/***************************************************/
+#definedArea {
+	background-color: #FAF9E1;
+	max-width: 50%;
+	border: 5px solid green;
+	border-radius: 10px;
+	margin: 50px auto;
+	padding-bottom: 50px;
+}
+
+#inputArea { 
+	display: flex;
+	flex-direction: column;
+	max-width: 60%;
+	margin: auto;
+}
+
+label {
+	font-weight: 900;
+}
+
+
+
+/***************************************************/
+/* styling for new cards written dynamically to DOM
+/***************************************************/
+#newCardsHere {
+	display: flex;
+    flex-flow: row wrap;
+}
+
+.newCard {
+	background-color: #f0f0ff;
+    width: 30%;
+    border: 3px solid green;
+	border-radius: 8px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.newCardHeader {
+	text-align: center;
+}
+
+.domText {
+	margin: 20px 20px;
+}
+
+.newCard {
+	max-width: ;
+}
+
+
+
+/***************************************************/
+/* styling for <Create> and <Delete> buttons
+/***************************************************/
+#create, .delButtons {
+  background: #68b371;
+  background-image: -webkit-linear-gradient(top, #68b371, #2980b9);
+  background-image: -moz-linear-gradient(top, #68b371, #2980b9);
+  background-image: -ms-linear-gradient(top, #68b371, #2980b9);
+  background-image: -o-linear-gradient(top, #68b371, #2980b9);
+  background-image: linear-gradient(to bottom, #68b371, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  max-width: 100px;
+  margin: 25px auto;
+  border-radius: 28px;
+  color: honeydew;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+#create:active {
+  outline: none;
+  border: none;
+}
+
+#create:focus {
+  outline: none;
+  border: none;
+}
+
+#create:hover, .delButtons:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.delButtons {
+  margin: 5% 35%;
+}
+
+
