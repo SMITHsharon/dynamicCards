@@ -1,8 +1,17 @@
 # NSS Dynamic Cards Exercise
 
 ### Project Description 
-This assignment 
-<!-- ![Sandwich Maker Screengrab](https://....png) -->
+This assignment displays a user textbox input area and, given the user input, creates and displays the Card dynamically. If the user clicks the <Delete> button on the card, the card is deleted entirely from the DOM.
+#### User Input Screen
+![Dynamic Cards User Input Screen](https://....png) -->
+
+
+#### Display After One Generated Card
+![Dynamic Cards (2) After One Card Has Been Generated](https://....png) -->
+
+
+#### Display After One Generated Card
+![Dynamic Cards (3) Display After Four Cards Have Been Generated](https://....png) -->
 
 
 ### Project Specs
@@ -20,7 +29,7 @@ This assignment
 ### How To View The Cards Screen 
 #### (Node must be installed on your machine):
 ```
-git clone ...
+git clone https://github.com/SMITHsharon/dynamicCards.git
 cd cards
 npm install http-server -g
 http-server -p 8080
