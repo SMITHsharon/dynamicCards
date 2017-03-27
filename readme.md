@@ -1,7 +1,9 @@
 # NSS Dynamic Cards Exercise
 
 ### Project Description 
-This assignment displays a user textbox input area and, given the user input, creates and displays the Card dynamically. If the user clicks the <Delete> button on the card, the card is deleted entirely from the DOM.
+This assignment displays a user textbox input area and, given the user input, creates and displays the Card dynamically. If the user clicks the `Delete` button on the card, the card is deleted entirely from the DOM.
+
+
 #### User Input Screen
 ![Dynamic Cards User Input Screen](https://raw.githubusercontent.com/SMITHsharon/dynamicCards/master/Dynamic%20Cards%20User%201%20Input%20Screen.png)
 
@@ -17,9 +19,9 @@ This assignment displays a user textbox input area and, given the user input, cr
 ### Project Specs
 1. Create an `html` page containing a text area and a button labeled `Create`.
 2. When the user enters text into the text area and then clicks the `Create` button: 
-Create a new card element in the DOM. The height/width of the card are discretionary design elements.
+Create a new Card element in the DOM. The height/width of the Card are discretionary design elements.
 3. When the user clicks the `Delete` button: 
-The containing card, and no other cards, are removed from the DOM. 
+The containing Card, and no other Cards, are removed from the DOM. 
 i.e., Not just made invisible, actually removed from the DOM.
 
 
