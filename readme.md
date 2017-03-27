@@ -15,7 +15,7 @@ This assignment displays a user textbox input area and, given the user input, cr
 
 
 ### Project Specs
-1. Create an HTML page containing a text area and a button labeled `Create`.
+1. Create an `html` page containing a text area and a button labeled `Create`.
 2. When the user enters text into the text area and then clicks the `Create` button: 
 Create a new card element in the DOM. The height/width of the card are discretionary design elements.
 3. When the user clicks the `Delete` button: 
@@ -24,9 +24,9 @@ i.e., Not just made invisible, actually removed from the DOM.
 
 
 ### Technologies Used
-- html
-- css
-- javascript
+- `html`
+- `css`
+- `JavaScript`
 
 
 ### How To View The Cards Screen 
