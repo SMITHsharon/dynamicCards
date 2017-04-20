@@ -17,12 +17,12 @@ This assignment displays a user textbox input area and, given the user input, cr
 
 
 ### Project Specs
-1. Create an `html` page containing a text area and a button labeled `Create`.
+1. Creates an `html` page containing a text area and a button labeled `Create`.
 2. When the user enters text into the text area and then clicks the `Create` button: 
-Create a new Card element in the DOM. The height/width of the Card are discretionary design elements.
+  - Creates a new Card element in the DOM. The height/width of the Card are discretionary design elements.
 3. When the user clicks the `Delete` button: 
-The containing Card, and no other Cards, are removed from the DOM. 
-i.e., Not just made invisible, actually removed from the DOM.
+  - The containing Card, and no other Cards, are removed from the DOM. 
+  - i.e., Not just made invisible, actually removed from the DOM.
 
 
 ### Technologies Used
@@ -36,11 +36,10 @@ i.e., Not just made invisible, actually removed from the DOM.
 ```
 git clone https://github.com/SMITHsharon/dynamicCards.git
 cd cards
-npm install http-server -g
 http-server -p 8080
+This will show in your browser at: http://localhost:8080
 ```
 
-This will show in your browser at: `http://localhost:8080`
 
 ### Contributor
 [Sharon Smith](https://github.com/SMITHsharon)
